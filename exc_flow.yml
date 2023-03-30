@@ -1,0 +1,20 @@
+yaml
+components:
+  node-0:
+    class: RetrieveEmbedInfo
+    module-path: components/retrieve_embed_info/retrieve_embed_info.py
+    configuration: !include components/retrieve_embed_info/configuration.yml
+  node-1:
+    class: PrepareAndSendEmbedMessage
+    module-path: components/prepare_and_send_embed_message/prepare_and_send_embed_message.py
+    configuration: !include components/prepare_and_send_embed_message/configuration.yml
+
+flow-matrix:
+  - [0, 1]
+  - [0, 0]
+
+mapper:
+  node-0.RetrieveEmbedInfo.url: Input.url
+  node-1.PrepareAndSendEmbedMessage.embed_info: node-0.RetrieveEmbedInfo.embed_info
+  node-1.PrepareAndSendEmbedMessage.discord_channel_id: Input.discord_channel_id
+  Output.embed_message_sent: node-1.PrepareAndSendEmbedMessage.embed_message_sent
