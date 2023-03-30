@@ -1,6 +1,8 @@
 description: Accepts the extracted information, prepares an embed message based on
   that info, and sends it to the given Discord channel or thread.
+input-class: PrepareAndSendEmbedMessageInputDict
 name: PrepareAndSendEmbedMessage
+output-class: PrepareAndSendEmbedMessageOutputDict
 parameters:
   discord_api_token: None
   discord_channel_id: None
