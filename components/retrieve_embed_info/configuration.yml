@@ -1,0 +1,5 @@
+description: Takes the input URL and extracts the required information to generate
+  the Discord embed card message for the Discord repository.
+name: RetrieveEmbedInfo
+parameters:
+  timeout: 10
